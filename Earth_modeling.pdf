@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{gensymb}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{By Cheryl Wang}
+\lhead{Earth's Magnetic Field Modeling}
+\rfoot{Page \thepage}
+
+
+\title{Earth's magnetic field}
+\usepackage{graphicx}
+\graphicspath{{C:/Users/wangc/Documents/UCLA/Lab/Earth's magnetic field/images}}
+
+\begin{document}
+
+	
+\section{Definition}
+\textbf{Declination:} The angle between the direction of the compass and the true direction of the north. \\*
+\textbf{Inclination:} The vertical angle between the north and the direction the compass points when it is suspended in free fall.\\*
+\textbf{Magnetic poles:} Positions on Earth's Surface for where the horizontal component of the magnetic field is 0. \\*
+\textbf{Magnetic Equator:} An undulating curve near the Earth's geographical equator where the vertical component of the magnetic field is 0. \\* 
+%\includegraphics[width=3cm, height= 4cm]{magnetic}
+\newline
+Before modeling the Earth as a magnetic dipole, it is best to define a few terminologies about magnetic dipole, which is the first order approximation of the Earth's magnetic field.
+\begin{enumerate}
+\item \textbf{Magnetic Dipole:} A pair of South and North magnetic poles kept closed together or viewed from a large distance. More formally, it is the limit of either a closed loop of electric current or a pair of poles as the dimensions of the source are reduced to zero while keeping the magnetic moment constant.
+\item \textbf{Magnetic Dipole Moment:} A quantity that represents the magnetic field strength and orientation of a magnet or other objects that produces a magnetic field. 
+\item \textbf{Magnetic Vector Potential ($\vec{A}$):} It is a vector field that serves as the potential for magnetic field. The curl of the magnetic field potential is the magnetic field.
+\begin{center}
+	$\vec{B} = \nabla \times \vec{A} $
+\end{center}
+
+\end{enumerate}
+
+
+\section{Magnetic field as Dipole }
+We are able to write the Earth's magnetic pole by modeling it according to a dipole - a first order approximation.
+\begin{equation}
+	\label{eq:t}
+	\begin{gathered} 
+\textbf{B(r)} = (B_r, B_\theta, B_\phi)\\ 
+	\end{gathered}
+\end{equation}
+
+\indent When we align the Earth's magnetic field along the z-axis:
+\begin{equation}
+\begin{gathered}
+	V(\textbf{r}) = \frac{1}{4\pi r^3} m \cdot r\\
+	= \frac{mr\cos(\theta)}{4\pi r^3}\\
+	= \frac{m\cos(\theta)}{4\pi r^2}	
+\end{gathered}
+\end{equation}
+
+\indent We can derive three equations separately for $B_r$, $B_\theta$, and $B_\phi$, stated as the following. We fine $\textbf{m}$ as the dipole moment, and $\mu_o$ as the vacuum permeability. 
+
+\begin{equation}
+	\begin{gathered}
+B_r(r,\theta,\phi) = \frac{-2\mu_omcos(\theta)}{4\pi r^3}\\
+B_\theta(r,\theta,\phi) = \frac{-\mu_omcos(\theta)}{4\pi r^3}\\
+B_\phi(r,\theta,\phi) = 0
+	\end{gathered}
+\end{equation}
+\indent Thus the total field, which is just the vector sum of the three $B$ functions. 
+
+\begin{equation}
+B(r, \theta, \phi) = \sqrt{B_r^2+B_\theta^2+B_\phi^2} = \frac{\mu_o m}{4\pi r^3} \sqrt{1+3cos^2(\theta)}
+\end{equation}
+\begin{center}
+At the \textbf{North Pole}
+\end{center}
+\begin{equation}
+\begin{gathered}
+B_r(r,\theta,\phi) = \frac{-\mu_omcos(\theta)}{2\pi r^3}\\
+B_\theta(r,\theta,\phi) = 0
+\end{gathered}
+\end{equation}
+
+\begin{center}
+	At the \textbf{Magnetic Equator}
+\end{center}
+\begin{equation}
+	\begin{gathered}
+B_r(r,\theta,\phi) = 0\\
+B_\theta(r,\theta,\phi) = \frac{-\mu_omcos(\theta)}{4\pi r^3}
+	\end{gathered}
+\end{equation}
+Let's define $$k_o = \frac{\mu_o \textit{m}}{4\pi}$$
+and we know that at the Earth's Dipole $k_o = 8 * 10^{15} \hspace{0.1cm} Tm^3$\\
+At the dipole, $\theta = \pm 90^{\circ} $, and we return the value of B as $B = \frac{2k_o}{R_E^3} \approx 60 \mu T$ \\
+At the dipole, $\theta = \pm 0^{\circ} $, and we return the value of B as $B = \frac{k_o}{R_E^3} \approx 30 \mu T$\\
+\newline
+Conceptually, Earth's magnetic field does not lie directly on the north and south pole and is not necessarily antipodal. The best fit dipole currently is 11.5$^{\circ}$ from the geographical north pole. 
+
+\end{document}
