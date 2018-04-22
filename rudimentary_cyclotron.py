@@ -1,10 +1,11 @@
 import numpy as np
+import math as math
 import matplotlib.pyplot as plt
 from decimal import Decimal
 
 final = 4
 iteration = 10
-c = 3e8
+c = 3.0e8
 gap = 1
 
 class Particle:
@@ -41,9 +42,9 @@ class Particle:
 				#if the particle is below the origin, then the acceleration is negative
 				return -q_by_m*self.eField/self.pMass
 
-e = [50000.0,0.,0.]
+e = [5000000.0,0.,0.]
 b = [0.,0.,-1.5]
-mass = 1.67e-21
+mass = 1.67e-27
 charge = 1.6e-19
 
 proton = Particle(mass, charge, e, b)
@@ -51,11 +52,11 @@ proton = Particle(mass, charge, e, b)
 # setting the upper and lower limits of the partition a <= t <= b
 
 a = 0.0
-b = 10.0
+b = 10*2*math.pi * proton.pMass / (np.linalg.norm(b) * proton.pCharge)
  
  
 # Setting the number of partitions and calculating the width of each partion
-n = 10000
+n = 4000
 h = (b-a)/n
 
 #
@@ -64,8 +65,8 @@ r = np.zeros((n+1,3))
 v = np.zeros((n+1,3))
 
 t[0]= 0.0
-r[0]= [0.0, -1.0, 0.0]
-v[0]= [1.0, 0.0, 0.0]
+r[0]= [0.0, 0.0, 0.0]
+v[0]= [0.05*c, 0.0, 0.0]
 
 
 """*
