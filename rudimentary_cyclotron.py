@@ -112,7 +112,7 @@ def rungeKutta(tVal, rVal, vVal, h):
 	k4 = h*deriR(tVal + h, rVal + k3, vVal + l3)
 	l4 = h*deriV(tVal + h, rVal + k3, vVal + l3)
 	
-	return [(k1+ 2*(k1 + k3) + k4)/6, (l1+ 2*(l1 + l3) + l4)/6]
+	return [(k1+ 2*(k2 + k3) + k4)/6, (l1+ 2*(l2 + l3) + l4)/6]
 
 
 """
