@@ -40,7 +40,7 @@ class Particle:
 				return q_by_m*self.eField
 			else:
 				#if the particle is below the origin, then the acceleration is negative
-				return -q_by_m*self.eField/self.pMass
+				return -q_by_m*self.eField
 
 e = [5000000.0,0.,0.]
 b = [0.,0.,-1.5]
